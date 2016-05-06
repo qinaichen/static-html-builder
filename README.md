@@ -19,10 +19,3 @@ Static HTML Builder
 =======================
 
 安装之前确保已经有 git 和 node.js 环境。node.js 需要 bower 与 grunt-cli。
-
-执行以下命令：
-```bash
-git clone https://github.com/gengen1988/static-html-builder.git
-cd static-html-builder
-npm install
-```
