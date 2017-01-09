@@ -2,7 +2,7 @@
   "name": "Static HTML App",
   "main": "app",
   "dependencies": {
-    "angular-ui-router": "~0.2.18"
+    "angular-ui-router": "~0.3.2"
   },
   "overrides": {
     "marked": "lib/marked.js"
