@@ -15,7 +15,56 @@ Static HTML Builder
 - 自动加入闭包，避免全局命名空间污染
 - 支持 ngAnnotate 语法
 
-安装方法
+系统环境安装
 =======================
 
-安装之前确保已经有 git 和 node.js 环境。node.js 需要 bower 与 grunt-cli。
+- 系统安装git客户端
+- 安装Node.js
+- 启动命令行，执行如下命令
+
+
+    ```shell
+
+    npm install -g bower
+    npm install -g grunt-cli
+
+    ```
+ - 执行npm install安装所有依赖
+ - 命令行执行grunt
+ - 启动浏览器，访问9000端口
+
+ 前端依赖包安装
+ =======================
+
+ - 在[https://bower.io/search/](https://bower.io/search/)中查找需要的安装包
+ - 使用bower install安装，如安装jquery
+ ```shell
+    bower install jquery --save
+ ```
+ - 在bower.json的dependencies中找到相应的依赖记录，拷贝到app/project.json中的dependencies下
+ - 在bower_component中查看安装好的依赖包中的bower.json,检查其main属性中是否包括项目需要依赖的所有文件,如果依赖不完整或与其中的依赖与项目需要的依赖不符,则需要在app/project.json中重置依赖
+ 如bootstrap：依赖包中bower.json的main是
+
+ ```json
+ "main": [
+   "less/bootstrap.less",
+   "dist/js/bootstrap.js"
+ ]
+ ```
+ 则我们需要改为：
+
+ ```json
+ "bootstrap": [
+     "dist/css/bootstrap.css",
+     "dist/js/bootstrap.js"
+ ]
+ ```
+与服务器端交互
+========================
+
+在app/project.json中配置proxies,则可以通过反向代理，与服务器端进行数据交互，如：
+```json
+"proxies": {
+    "/api": "http://localhost:8080"
+}
+```
