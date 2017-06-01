@@ -133,7 +133,7 @@ function TestService($http, $q) {
   this.getData = function () {
     var deferred = $q.defer();
     $http.get('http://localhost:9001/test')
-      .success(deferred.resolve,deferred.reject);
+      .then(deferred.resolve,deferred.reject);
     return deferred.promise;
   }
 }
